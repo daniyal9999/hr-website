@@ -9,7 +9,7 @@ import Contactus from './Pages/Contactus';
 
 function App() {
   return (
-    <div className="App" style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}>
+    <div className="App" style={{ backgroundColor: 'rgba(17, 40, 52, 0.25)' }}>
       <BrowserRouter>
           <Navbar/>
 

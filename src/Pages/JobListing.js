@@ -1,22 +1,54 @@
 import React, { useState, useEffect } from 'react'
 import JobDetail from './JobDetail'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
+import ReactPaginate from "react-paginate";
 
 const JobListing = () => {
   const [ jobs, setJobs ] = useState(null)
   const [ query, setQuery ] = useState(null)
   const [ error, setError ] = useState(false)
-  const navigate = useNavigate()
+  const [ page, setPage] = useState(1);
+  const [ pageCount, setpageCount] = useState(10);
 
+  let limit = 3;
+ 
   useEffect(() => {
 
-    fetch('http://localhost:4000/api/jobs')
-    .then((response)=>response.json())
-    .then((data)=>setJobs(data))
-    console.log("fetch working!!!")
+    const fetchJobs = async () => {
+      const response = await fetch(`http://localhost:4000/api/jobs?page=1&limit=${limit}`)
+      const json = await response.json()
+      setJobs(json)
 
-  }, [])
+      const total = response.headers.get('x-total-count')
+      setpageCount(Math.ceil(parseInt(total) / limit));
+      
+      console.log("total >>"+total) //9
+      console.log("pagecount >>"+pageCount) // total/limit
+      console.log("fetch working!!!")
+    }
+    fetchJobs()
+
+  }, [limit])
+
+  const fetchJobs = async (currentPage) => {
+    const res = await fetch(
+      `http://localhost:4000/api/jobs?page=${currentPage}&limit=${limit}`
+    );
+    const data = await res.json();
+    return data;
+  };
+
+  const handlePageClick =  async (data) => {   
+    let currentPage = data.selected + 1;
+    console.log(currentPage);
+    const commentsFormServer = await fetchJobs(currentPage);
+    setJobs(commentsFormServer);
+    // scroll to the top
+    // window.scrollTo(0, 0)
+  };
+
+  // ---------SEARCH functions below----------
   //converts hello to Hello
   function toTitleCase(str) {
     return str.toLowerCase().split(' ').map(function(word) {
@@ -24,7 +56,7 @@ const JobListing = () => {
     }).join(' ');
   }
  
-  function handleSubmit(e){
+  function handleSearch(e){
     e.preventDefault()
     const x = toTitleCase(query) // Doctor 
     const y = query.toLowerCase() //doctor
@@ -37,7 +69,7 @@ const JobListing = () => {
 
       <div className='container'> 
 
-        <form className="search" onSubmit={handleSubmit}>
+        <form className="search" onSubmit={handleSearch}>
           <input
               className="search__input"
               type="text"
@@ -48,10 +80,10 @@ const JobListing = () => {
               Search
           </button>
         </form>
-          <button onClick={()=>{
-            
-              window.location.reload(false);
-            
+
+          {/* page refresh button */}
+          <button onClick={()=>{            
+              window.location.reload(false);            
             }}>
               Reset
           </button>
@@ -75,8 +107,32 @@ const JobListing = () => {
               {job.details}
              </div>
                </Alert>
+
            </>
         ))}
+
+          <div>
+              <ReactPaginate
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"..."}
+                pageCount={pageCount}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination justify-content-center"}
+                pageClassName={"page-item"}
+                pageLinkClassName={"page-link"}
+                previousClassName={"page-item"}
+                previousLinkClassName={"page-link"}
+                nextClassName={"page-item"}
+                nextLinkClassName={"page-link"}
+                breakClassName={"page-item"}
+                breakLinkClassName={"page-link"}
+                activeClassName={"active"}
+              />
+          </div>
+
       </div>
 
   )

@@ -27,7 +27,7 @@ const JobDetail = () => {
         </div>
      } 
      
-      <JobForm/>
+      <JobForm id={id}/>
     </div>
   )
 }

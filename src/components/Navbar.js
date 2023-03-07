@@ -6,12 +6,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
-
+import '../index.css'
 function navbar() {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg">
-      <Container fluid className='container'>
-        <Navbar.Brand href="#">Brand Name</Navbar.Brand>
+  <div className='sticky-top bg-dark'>
+    <Navbar expand="lg" >
+      <Container fluid className='container '>
+        <Navbar.Brand href="/" className='text-light' >Estiva Construction</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,13 +20,13 @@ function navbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link to="/">
+            {/* <Link to="/">
                 <Nav.Link className="mx-2" href="/">Home</Nav.Link>
-            </Link>
+            </Link> */}
             <Link to="/jobs">
-              <Nav.Link className="mx-2" href="/jobs">Vacancies</Nav.Link>
+              <Nav.Link className="mx-2 text-light " href="/jobs">Vacancies</Nav.Link>
             </Link>
-            <NavDropdown title="About Us" id="navbarScrollingDropdown">
+            {/* <NavDropdown title="About Us" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">About Us</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
@@ -34,16 +35,16 @@ function navbar() {
               <NavDropdown.Item href="#action5">
                 Something else here
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
 
             <Link to="/contactus">
-              <Nav.Link className="mx-2" href="contactus">
+              <Nav.Link className="mx-2 text-light" href="contactus">
                 Contact Us
               </Nav.Link>
             </Link>
 
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -51,10 +52,11 @@ function navbar() {
               aria-label="Search"
             />
             <Button variant="outline-success bg-danger">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
+  </div>
   );
 }
 

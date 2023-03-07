@@ -6,19 +6,40 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { userSchema } from '../validations/UserValidation';
 
-function JobForm() {
+function JobForm({id}) {
   const [ isValid, setIsValid ] = useState(true)
+
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [city, setCity] = useState('')
 
   const createUser = async (event) => {
     event.preventDefault()
     let formData = {
-      firstName:event.target[0].value,
-      lastName:event.target[1].value,
-      email:event.target[2].value,
-      city:event.target[3].value
+      firstName:firstName,
+      lastName:lastName,
+      email:email,
+      city:city,
+      jobId:id
     }
     const isValid = await userSchema.isValid(formData)
     setIsValid(isValid)
+
+    if(isValid){
+      console.log(JSON.stringify(formData))
+      const response = await fetch('http://localhost:4000/api/applicants/create/', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if(response.ok){
+        console.log("application created")
+      }
+    }
+    
   }
   return (
     <div className="container"><br />
@@ -33,13 +54,19 @@ function JobForm() {
         <Col>
           <div>
           <label>First name</label> <br />
-          <input type="text" />
+          <input 
+          type="text"
+          onChange={(e) => setFirstName(e.target.value)} 
+          value={firstName} />
           </div>
         </Col>
         <Col>
           <div>
           <label>Last name</label> <br />
-          <input type="text" />
+          <input 
+          type="text"
+          onChange={(e) => setLastName(e.target.value)} 
+          value={lastName} />
           </div>
         </Col>
         <Col></Col>
@@ -50,13 +77,19 @@ function JobForm() {
         <Col>
           <div>
           <label>Email</label> <br />
-          <input type="text" />
+          <input 
+          type="text"
+          onChange={(e) => setEmail(e.target.value)} 
+          value={email}  />
           </div>  
         </Col>
         <Col>
           <div>
           <label>City</label> <br />
-          <input type="text" />
+          <input 
+          type="text"
+          onChange={(e) => setCity(e.target.value)} 
+          value={city}  />
           </div>
         </Col>
         <Col></Col>

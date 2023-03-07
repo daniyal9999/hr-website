@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.2rem);
+  border-radius: 0.2rem;
+}
+.bg-img {
+  background: url('./Pages/img1.jpg') center fixed;
+  opacity: 1;
+  border: 5rem solid rgba(17, 40, 52, 0.1);
+  
+}
+.foreground{
+  background-color: rgba(17, 40, 52, 0.1);
+}
+.navcolor{
+  background-color: rgba(17, 40, 52, 0.8);
+}

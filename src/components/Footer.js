@@ -3,7 +3,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-k
 
 const Footer = () => {
   return (
-    <div className='container'>
+    <div className=''>
         
     <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted' >
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
