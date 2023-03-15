@@ -12,19 +12,49 @@ code {
     monospace;
 }
 .glass-effect {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(0.2rem);
-  border-radius: 0.2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(0.02rem);
+  border-radius: 1rem;
 }
 .bg-img {
-  background: url('./Pages/img1.jpg') center fixed;
+  background: url('./Pages/home.jpg') ;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 1;
-  border: 5rem solid rgba(17, 40, 52, 0.1);
-  
+  padding-top: 5rem;
 }
 .foreground{
   background-color: rgba(17, 40, 52, 0.1);
 }
+.bg-blue{
+  /* background-color: rgb(9, 100, 150); */
+  background-color: rgb(17, 62, 110);
+  color: white;
+}
 .navcolor{
   background-color: rgba(17, 40, 52, 0.8);
 }
+.button-margin{
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+.hover-effect:hover{
+  color: rgb(81, 178, 230);
+}
+/* navbar */
+.logo img {
+  height: 3rem;
+  user-select: none;
+}
+.company-name{
+  font-family: roboto;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  user-select: none;
+}
+/* about-us */
+
+/* contact-us */
+
+/* footer */

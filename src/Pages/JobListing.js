@@ -11,7 +11,7 @@ const JobListing = () => {
   const [ page, setPage] = useState(1);
   const [ pageCount, setpageCount] = useState(10);
 
-  let limit = 3;
+  let limit = 5;
  
   useEffect(() => {
 
@@ -45,7 +45,7 @@ const JobListing = () => {
     const commentsFormServer = await fetchJobs(currentPage);
     setJobs(commentsFormServer);
     // scroll to the top
-    // window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
   };
 
   // ---------SEARCH functions below----------
@@ -66,28 +66,27 @@ const JobListing = () => {
     if(resultsArray.length == 0) setJobs(null)
   }
   return (
+    
+    <div className='container'> 
 
-      <div className='container'> 
+    <h3>Search</h3>   
+    <form class="search container" onSubmit={handleSearch}>
+      <div class="input-group rounded">
+        <input type="text" class="form-control rounded-left" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" onChange={(e) => setQuery(e.target.value)} id="search" />
+        <div class="input-group-append">
+          <button class="btn btn-primary rounded-right" type="submit" id="button-addon2">Search</button>
+        </div>
+      </div>
+    </form>
 
-        <form className="search" onSubmit={handleSearch}>
-          <input
-              className="search__input"
-              type="text"
-              onChange={(e) => setQuery(e.target.value)} 
-              id="search"
-          />
-          <button >
-              Search
-          </button>
-        </form>
 
           {/* page refresh button */}
-          <button onClick={()=>{            
+          <button className='btn btn-sm float-end' onClick={()=>{            
               window.location.reload(false);            
             }}>
-              Reset
+              Reset Search Filter
           </button>
-
+<br />
         <h3>Vacancies</h3>   
         { (!jobs) && 
         <div>No Vacancies found</div>

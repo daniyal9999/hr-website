@@ -7,12 +7,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
 import '../index.css'
+import logo from '../Pages/logo.jpg'
+
 function navbar() {
   return (
-  <div className='sticky-top bg-dark'>
+  <div className='sticky-top bg-blue'>
     <Navbar expand="lg" >
       <Container fluid className='container '>
-        <Navbar.Brand href="/" className='text-light' >Estiva Construction</Navbar.Brand>
+        <Navbar.Brand href="/" className='text-light'> <b>Home</b> </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -20,39 +22,33 @@ function navbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            {/* <Link to="/">
-                <Nav.Link className="mx-2" href="/">Home</Nav.Link>
-            </Link> */}
+           
             <Link to="/jobs">
-              <Nav.Link className="mx-2 text-light " href="/jobs">Vacancies</Nav.Link>
+              <Nav.Link className="mx-2 text-light " href="/jobs"> <b>Vacancies</b> </Nav.Link>
             </Link>
-            {/* <NavDropdown title="About Us" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown> */}
 
             <Link to="/contactus">
               <Nav.Link className="mx-2 text-light" href="contactus">
+                <b>
                 Contact Us
+                </b>
+              </Nav.Link>
+            </Link>
+
+            <Link to="/aboutus">
+              <Nav.Link className="mx-2 text-light" href="aboutus">
+                <b>
+                About Us
+                </b>
               </Nav.Link>
             </Link>
 
           </Nav>
-          {/* <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success bg-danger">Search</Button>
-          </Form> */}
+          
+          <div className='logo'>
+            <img src={logo} alt="logo" />
+          </div>
+          <h3 className='company-name'>Estiva Group</h3>
         </Navbar.Collapse>
       </Container>
     </Navbar>

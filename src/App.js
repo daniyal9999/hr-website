@@ -6,10 +6,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import JobListing from './Pages/JobListing';
 import JobDetail from './Pages/JobDetail';
 import Contactus from './Pages/Contactus';
+import Aboutus from './Pages/Aboutus'
 
 function App() {
   return (
-    <div className="App" style={{ backgroundColor: 'rgba(17, 40, 52, 0.25)' }}>
+    <div className="" style={{ backgroundColor: 'rgba(17, 40, 52, 0.15)' }}>
       <BrowserRouter>
           <Navbar/>
 
@@ -29,6 +30,10 @@ function App() {
             <Route 
               path="/contactus"
               element={<Contactus />}
+            />
+            <Route 
+              path="/aboutus"
+              element={<Aboutus />}
             />
           </Routes>
           

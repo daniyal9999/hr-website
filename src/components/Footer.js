@@ -1,106 +1,74 @@
 import React from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Logo from '../Pages/logo.jpg'
+import '../index.css'
 
 const Footer = () => {
   return (
     <div className=''>
         
-    <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted' >
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-        <div className='mx-5 d-none d-lg-block container'>
-          <span>Get connected with us on social networks:</span>
-        </div>
-      </section>
+    <MDBFooter color='' className='text-center text-lg-start bg-blue' >
 
-      <section className=''>
+      <section className='pt-2'>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
-            <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
-                <MDBIcon color='secondary' icon='gem' className='me-3' />
-                Company name
-              </h6>
-              <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
-              </p>
+            <MDBCol md='1' lg='2' xl='1' className='mx-auto mb-4'>
+                <img src={Logo} height="150rem" alt="logo" />
             </MDBCol>
 
-            {/* <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Angular
+            <MDBCol md='1' lg='2' xl='1' className='mx-auto mb-4 px-5'>
+              <h3 className='text-uppercase fw-bold mb-4'>
+                Estiva Group
+              </h3>              
+              
+              <div className="d-flex ">
+                <a href="https://www.linkedin.com/" className="mx-2">
+                  <FaLinkedin />
                 </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  React
+                <a href="https://www.instagram.com/" className="mx-2">
+                  <FaInstagram />
                 </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Vue
+                <a href="https://www.facebook.com/" className="mx-2">
+                  <FaFacebook />
                 </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
-              </p>
-            </MDBCol> */}
+              </div>
+                   
+            </MDBCol>
 
-            <MDBCol md='3' lg='2' xl='2' className='mx-auto mb-4'>
+            <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>                           
+            </MDBCol>
+
+            <MDBCol md='1' lg='1' xl='1' className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Company</h6>
+              <p className='hover-effect'>
+                <a href='/aboutus' className='text-reset'>
+                  Aboutus
+                </a>
+              </p>
+            
+            </MDBCol>
+
+            <MDBCol md='1' lg='1' xl='1' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Careers</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Pricing
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Settings
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Help
+              <p className='hover-effect'>
+                <a href='/jobs' className='text-reset'>
+                  Vacancies
                 </a>
               </p>
             </MDBCol>
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+              <h6 className='text-uppercase fw-bold mb-4'>Contact Us</h6>              
               <p>
-                <MDBIcon color='secondary' icon='home' className='me-2' />
-                New York, NY 10012, US
+                info@estivagroup.com
               </p>
-              <p>
-                <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                info@example.com
-              </p>
-              <p>
-                <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon color='secondary' icon='print' className='me-3' /> + 01 234 567 89
-              </p>
+             
             </MDBCol>
           </MDBRow>
         </MDBContainer>
       </section>
-
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 256, 0.1)' }}>
-        © 2023 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          website.com
-        </a>
-      </div>
+      
     </MDBFooter>
 
     </div>
