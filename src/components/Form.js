@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { userSchema } from '../validations/UserValidation';
+import { Cloudinary } from "cloudinary-core";
 
 function JobForm({id}) {
   const [ isValid, setIsValid ] = useState(true)
@@ -13,15 +14,66 @@ function JobForm({id}) {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [city, setCity] = useState('')
+  const [resume, setResume] = useState(null);
+  const [resumeUrl, setResumeUrl] = useState('');
+  const [coverletter, setCoverletter] = useState(null);
+  const [coverletterUrl, setCoverletterUrl] = useState('');
+
+  // <---------------RESUME------------------>
+
+  const handleResumeUpload = (event) => {
+    const file = event.target.files[0];
+    setResume(file);
+  };
+
+
+   // <---------------COVER LETTER------------------>
+
+  const handleCoverletterUpload = (event) => {
+    const file = event.target.files[0];
+    setCoverletter(file);
+  };
+
+
+
+  const handleFileUpload = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'xk3vv8aa');
+
+    const cloudinary = new Cloudinary({
+      cloud_name: 'dfmxbcddb',
+      secure: true,
+    });
+
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudinary.config().cloud_name}/upload`, {
+      method: 'POST',
+      body: formData,
+    });
+    const data = await response.json();
+    return data.secure_url;
+  };
+
+  //<------------CREATE APPLICANT----------->
 
   const createUser = async (event) => {
     event.preventDefault()
+    console.log("inside createuser")
+    
+    const resumeLink = await handleFileUpload(resume);
+    setResumeUrl(resumeLink);
+
+    const coverLetterLink = await handleFileUpload(coverletter);
+    setCoverletterUrl(coverLetterLink);
+
     let formData = {
       firstName:firstName,
       lastName:lastName,
       email:email,
       city:city,
-      jobId:id
+      jobId:id,
+      resumeUrl:resumeUrl,
+      coverletterUrl:coverletterUrl,
     }
     const isValid = await userSchema.isValid(formData)
     setIsValid(isValid)
@@ -42,79 +94,91 @@ function JobForm({id}) {
     
   }
   return (
-    <div className="container"><br />
 
-    <h4>Apply Now</h4>
-      <form onSubmit={createUser}>
-        
 
-      <Container>
-      <Row>
-        {/* <Col></Col> */}
-        <Col>
-          <div>
-          <label>First name</label> <br />
-          <input 
-          type="text"
-          onChange={(e) => setFirstName(e.target.value)} 
-          value={firstName} />
-          </div>
-        </Col>
-        <Col>
-          <div>
-          <label>Last name</label> <br />
-          <input 
-          type="text"
-          onChange={(e) => setLastName(e.target.value)} 
-          value={lastName} />
-          </div>
-        </Col>
-        <Col></Col>
-      </Row>
-      
-      <Row>
-        {/* <Col></Col> */}
-        <Col>
-          <div>
-          <label>Email</label> <br />
-          <input 
-          type="text"
-          onChange={(e) => setEmail(e.target.value)} 
-          value={email}  />
-          </div>  
-        </Col>
-        <Col>
-          <div>
-          <label>City</label> <br />
-          <input 
-          type="text"
-          onChange={(e) => setCity(e.target.value)} 
-          value={city}  />
-          </div>
-        </Col>
-        <Col></Col>
-      </Row>
-      <Row>
-        
-        <Col><br /><input type="submit" /></Col>
-        <Col>
-        </Col>
-        <Col>
-        </Col>
-        
-      </Row>
-      <Row>
-        <Col>
-        {!isValid && 
-          <div>Enter valid information!!!</div>
-        }
-        </Col>
-      </Row>
+      <Container className='my-5'>
+      <h1>Job Application Form</h1> <br />
+      <Form onSubmit={createUser}>
+        <Row>
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>First name</b> </Form.Label>
+              <Form.Control
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>Last name</b></Form.Label>
+              <Form.Control
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                />
+            </Form.Group>
+          </Col>
+        </Row>
 
-    </Container>
+        <Row>
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>Email</b></Form.Label>
+              <Form.Control
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>City</b></Form.Label>
+              <Form.Control
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
 
-      </form>
-    </div>
+        <Row>
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>Resume</b></Form.Label>
+              <Form.Control
+                type='file'
+                accept="application/pdf"
+                onChange={handleResumeUpload}              
+              />  
+            </Form.Group>
+          </Col>
+
+          <Col>
+            <Form.Group>
+              <Form.Label> <b>Cover Letter</b></Form.Label>
+              <Form.Control
+                type='file'
+                accept="application/pdf"
+                onChange={handleCoverletterUpload}              
+              />  
+            </Form.Group>
+          </Col>          
+        </Row>
+
+    <Button className="float-end my-5" variant="primary" type="submit">
+      Apply Now
+    </Button>
+    <br />
+    <br />
+    <br />
+    <br />
+  </Form>
+</Container>
+    
   );
 }
 

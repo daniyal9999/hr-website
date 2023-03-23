@@ -1,52 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Stack, Button, Card, Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const carousel = () => {
+const Carousel = () => {
+    const [ jobs, setJobs ] = useState(null)
+
+    useEffect(() => {
+        const fetchJobs = async () => {
+            const response = await fetch(`http://localhost:4000/api/jobs?page=1&limit=3`)
+            const json = await response.json()
+            setJobs(json)  
+            console.log(jobs)
+        }
+        fetchJobs()    
+      }, [])
+
   return (
     <div className='container'>
         <br />
         <h1>Latest Vacancies</h1>        
         <Container>
             <Row>
-                <Col sm={4} className="my-3">
+                {jobs && jobs.map(job => (
+                <Col key={job._id} sm={4} className="my-3">
                     <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header>Header</Card.Header>
+                        <Card.Header className='btn btn-success'><span class="badge">5</span>View</Card.Header>
                         <Card.Body>
-                        <Card.Title>Primary Card Title</Card.Title>
+                        <Card.Title>{job.title}</Card.Title>
                         <Card.Text>
                             Some quick example text to build on the card title and make up the
                             bulk of the card's content.
                         </Card.Text>
                         </Card.Body>
+                        <Link to={`/jobs/${job._id}`}>
+                            <Card.Header className='btn btn-lg btn-primary  d-grid gap-2'>View</Card.Header>
+                        </Link>
                     </Card> 
                 </Col>
-
-                <Col sm={4} className="my-3">
-                    <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header>Header</Card.Header>
-                        <Card.Body>
-                        <Card.Title>Primary Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        </Card.Body>
-                    </Card> 
-                </Col>
-
-                <Col sm={4} className="my-3">
-                    <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header>Header</Card.Header>
-                        <Card.Body>
-                        <Card.Title>Primary Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        </Card.Body>
-                    </Card> 
-                </Col>
+                ))}
+                
             </Row>
         </Container>
 
@@ -60,4 +52,4 @@ const carousel = () => {
   )
 }
 
-export default carousel
+export default Carousel

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero'
 import ThreeItemCarousel from '../components/Carousel'
 import { FaHardHat, FaTools, FaDraftingCompass, FaBuilding, FaHammer } from 'react-icons/fa';
@@ -18,13 +19,14 @@ const Home = () => {
             <Container> 
               <Row>
                 <Col md={12}>
-                  
-                  <div className='text-center mx-auto my-5'>
-                    
-                  <Button variant="lg text-white btn-primary rounded-pill" className="button-margin">Find Candidates</Button>
-                  </div>
+
+                  <Link to="/jobs">
+                    <div className='text-center mx-auto my-5'>                    
+                      <Button variant="lg text-white btn-primary rounded-pill" className="button-margin">Find Candidates</Button>
+                    </div>
+                  </Link>
+
                 </Col>
-                
               </Row>
             </Container>
           </header>
