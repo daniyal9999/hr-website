@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Stack, Button, Card, Container, Row, Col } from 'react-bootstrap'
+import { Stack, Button, Card, Container, Row, Col, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Carousel = () => {
@@ -21,10 +21,15 @@ const Carousel = () => {
         <h1>Latest Vacancies</h1>        
         <Container>
             <Row>
+                {!jobs &&  
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner> }
+
                 {jobs && jobs.map(job => (
                 <Col key={job._id} sm={4} className="my-3">
                     <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header className='btn btn-success'><span class="badge">5</span>View</Card.Header>
+                        <Card.Header className='btn btn-success'><span class="badge">Latest</span></Card.Header>
                         <Card.Body>
                         <Card.Title>{job.title}</Card.Title>
                         <Card.Text>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Carousel from '../components/Carousel'
 import img2 from './img2.jpg'
 
 const Contactus = () => {
@@ -54,7 +55,7 @@ const Contactus = () => {
               </div>
             </div>
           </section>
-
+          <Carousel/>
      </div>
     </>
   )

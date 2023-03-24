@@ -3,6 +3,7 @@ import JobDetail from './JobDetail'
 import { Link } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert';
 import ReactPaginate from "react-paginate";
+import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from 'react-icons/fa'; 
 
 const JobListing = () => {
   const [ jobs, setJobs ] = useState(null)
@@ -80,31 +81,30 @@ const JobListing = () => {
     </form>
 
 
-          {/* page refresh button */}
-          <button className='btn btn-sm float-end' onClick={()=>{            
-              window.location.reload(false);            
-            }}>
-              Reset Search Filter
-          </button>
-<br />
+        {/* page refresh button */}
+        <button className='btn btn-sm float-end' onClick={()=>{            
+            window.location.reload(false);            
+          }}>
+            Reset Search Filter
+        </button>
+        <br />
+
         <h3>Vacancies</h3>   
         { (!jobs) && 
         <div>No Vacancies found</div>
          }
         {jobs && jobs.map(job => (
-             <>
-               <Alert key="primary" variant="primary">
-             <Link to={`/jobs/${job._id}`}>
-               {/* <SingleAttire attire={attire} /> */}
-                  <div key={job.id}>
-                    <h3>{job.title}</h3>
+            <>
+               <Alert key="primary" variant="dark">
+                  <Link to={`/jobs/${job._id}`}>
+                    <div key={job.id}>
+                      <h3>{job.title}</h3>
+                    </div>
+                  </Link>
+                  <p><FaIndustry style={{color: '#308dd9'}}/> {job.sector}   <FaMapMarkerAlt style={{color: '#308dd9',marginLeft: '2rem'}}/> {job.location} <FaBriefcase style={{color: '#308dd9',marginLeft: '2rem'}}/> {job.salary}</p>
+                  <div>
+                  {job.details.substring(0, 290)}... 
                   </div>
-                
-               {/* <JobDetail job={job} key={job._id} /> */}
-             </Link>
-             <div>
-              {job.details}
-             </div>
                </Alert>
 
            </>
