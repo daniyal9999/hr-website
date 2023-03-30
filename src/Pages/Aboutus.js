@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
-import img2 from './img2.jpg'
+import img2 from './Images/img1.jpg'
+import img3 from './Images/img3.jpg'
 
 const Contactus = () => {
   return (
@@ -8,7 +9,7 @@ const Contactus = () => {
       <div className=''>       
         
           {/* About Us Section */}
-          {/* <section id="about" className="py-0">
+          <section id="about" className="py-0">
               <div className=" d-flex justify-content-center align-items-center">
                   <div className="">
                     <p className="text-center mb-0 ">
@@ -30,8 +31,9 @@ const Contactus = () => {
                 <br />
               </div>
           
-          </section> */}
-          <section id="about" className="py-5">
+          </section>
+
+          {/* <section id="about" className="py-5">
             <div className="container">
               <h2 className="text-center mb-5 display-4">About Us</h2>
               <div className="row">
@@ -54,7 +56,7 @@ const Contactus = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
           <Carousel/>
      </div>
     </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import Logo from '../Pages/logo.jpg'
+import Logo from '../Pages/Images/logo.jpg'
 import '../index.css'
 
 const Footer = () => {
@@ -18,11 +18,11 @@ const Footer = () => {
             </MDBCol>
 
             <MDBCol md='1' lg='2' xl='1' className='mx-auto mb-4 px-5'>
-              <h3 className='text-uppercase fw-bold mb-4'>
+              <h3 className='text-uppercase fw-bold mb-4 mx-5'>
                 Estiva Group
               </h3>              
               
-              <div className="d-flex ">
+              <div className="d-flex mx-5">
                 <a href="https://www.linkedin.com/" className="mx-2">
                   <FaLinkedin />
                 </a>

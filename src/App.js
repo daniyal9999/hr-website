@@ -7,7 +7,6 @@ import JobListing from './Pages/JobListing';
 import JobDetail from './Pages/JobDetail';
 import Contactus from './Pages/Contactus';
 import Aboutus from './Pages/Aboutus'
-import PDF from './components/PDF';
 
 function App() {
   return (
@@ -35,10 +34,6 @@ function App() {
             <Route 
               path="/aboutus"
               element={<Aboutus />}
-            />
-            <Route 
-              path="/pdf"
-              element={<PDF />}
             />
           </Routes>
           

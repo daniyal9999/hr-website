@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
 import '../index.css'
-import logo from '../Pages/logo.jpg'
+import logo from '../Pages/Images/logo.jpg'
 
 function navbar() {
   return (

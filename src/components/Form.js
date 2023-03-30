@@ -18,6 +18,8 @@ function JobForm({id}) {
   const [resumeUrl, setResumeUrl] = useState('');
   const [coverletter, setCoverletter] = useState(null);
   const [coverletterUrl, setCoverletterUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false)
+  const [isCreated, setIsCreated] = useState(false)
 
   // <---------------RESUME------------------>
 
@@ -59,13 +61,13 @@ function JobForm({id}) {
   const createUser = async (event) => {
     event.preventDefault()
     console.log("inside createuser")
-    
+    setIsLoading(true)
     const resumeLink = await handleFileUpload(resume);
     setResumeUrl(resumeLink);
-
+    
     const coverLetterLink = await handleFileUpload(coverletter);
     setCoverletterUrl(coverLetterLink);
-
+    
     let formData = {
       firstName:firstName,
       lastName:lastName,
@@ -89,6 +91,20 @@ function JobForm({id}) {
       })
       if(response.ok){
         console.log("application created")
+        setIsCreated(true)
+        setIsLoading(false)
+        setFirstName('')
+        setLastName('')
+        setCity('')
+        setEmail('')
+        setResume(null)
+        setCoverletter(null)
+        setResumeUrl('')
+        setCoverletterUrl('')
+        
+      }
+      if(!response.ok){
+        console.log("application not created")
       }
     }
     
@@ -97,7 +113,7 @@ function JobForm({id}) {
 
 
       <Container className='my-5'>
-      <h1>Job Application Form</h1> <br />
+      <h3 className='text-primary'>Apply Now</h3> <br />
       <Form onSubmit={createUser}>
         <Row>
           <Col>
@@ -169,14 +185,15 @@ function JobForm({id}) {
           </Col>          
         </Row>
 
-    <Button className="float-end my-5" variant="primary" type="submit">
-      Apply Now
-    </Button>
+{  <Button className="float-end my-5" variant="primary" type="submit"> Apply Now </Button>}
+{/* { (isLoading) &&  <Button className="float-end my-5" variant="primary" disabled>Submitting...</Button>} */}
     <br />
     <br />
     <br />
     <br />
-  </Form>
+{  (isCreated) && <div className='alert alert-success'>Thanks for Applying!!!</div>}
+
+</Form>
 </Container>
     
   );

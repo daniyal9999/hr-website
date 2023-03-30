@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Stack, Button, Card, Container, Row, Col, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from 'react-icons/fa'; 
 
 const Carousel = () => {
     const [ jobs, setJobs ] = useState(null)
@@ -18,7 +19,7 @@ const Carousel = () => {
   return (
     <div className='container'>
         <br />
-        <h1>Latest Vacancies</h1>        
+        <h2 style={{ color: '#308dd9' }}>Latest Vacancies</h2>        
         <Container>
             <Row>
                 {!jobs &&  
@@ -29,16 +30,15 @@ const Carousel = () => {
                 {jobs && jobs.map(job => (
                 <Col key={job._id} sm={4} className="my-3">
                     <Card border="primary" style={{ width: '18rem' }}>
-                        <Card.Header className='btn btn-success'><span class="badge">Latest</span></Card.Header>
+                        <Link to={`/jobs/${job._id}`} style={{ textDecoration: 'none' }}>
                         <Card.Body>
-                        <Card.Title>{job.title}</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
+                            <Card.Title style={{ color: '#308dd9' }}>{job.title}</Card.Title> 
+                            <p><FaIndustry style={{color: '#308dd9'}}/> {job.sector}   <FaMapMarkerAlt style={{color: '#308dd9',marginLeft: '1rem'}}/> {job.location} <FaBriefcase style={{color: '#308dd9',marginLeft: '1rem'}}/> {job.salary}</p>
+                            <Card.Text>
+                                {job.details.substring(0, 90)}...
+                            </Card.Text>
                         </Card.Body>
-                        <Link to={`/jobs/${job._id}`}>
-                            <Card.Header className='btn btn-lg btn-primary  d-grid gap-2'>View</Card.Header>
+                            {/* <Card.Header className='btn btn-primary  d-grid gap-2'>View</Card.Header> */}
                         </Link>
                     </Card> 
                 </Col>

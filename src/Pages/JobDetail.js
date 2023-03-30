@@ -22,8 +22,15 @@ const JobDetail = () => {
 
     {job && 
         <div key={id}>
-            <h1>{job.title}</h1>
+            <br />
+            <h1 className='text-primary'>{job.title}</h1>
+            <br />
+            <strong>Description</strong> <br />
             {job.details}
+            <br />
+            <br />
+            <strong>Job Requirements</strong> <br />
+            {job.requirements}
         </div>
      } 
      
