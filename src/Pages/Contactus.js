@@ -1,23 +1,28 @@
-import React from 'react'
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { FiMail } from "react-icons/fi";
 
-const Contactus = () => {
+function ContactUs() {
   return (
-    <>
-      <div className='container m-10'>
-        <br />
-        <h3>
-            Contact us
-        </h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sit obcaecati fugit aliquam voluptate accusantium quos! Molestiae iure animi sequi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sit obcaecati fugit aliquam voluptate accusantium quos! Molestiae iure animi sequi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sit obcaecati fugit aliquam voluptate accusantium quos! Molestiae iure animi sequi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sit obcaecati fugit aliquam voluptate accusantium quos! Molestiae iure animi sequi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sit obcaecati fugit aliquam voluptate accusantium quos! Molestiae iure animi sequi.
-        </p>
-     </div>
-    </>
-  )
+    <Container>
+      <Row className="justify-content-center">
+      <Col md={8} lg={6}>
+          <h1>Contact Us</h1>
+          <p>If you have any questions or comments, please email us:</p>
+          <ul className="list-unstyled">
+            <li>
+              <FiMail className="me-2" />
+              <a href="mailto:careers@estivagroup.com">careers@estivagroup.com</a>
+            </li>
+            <li>
+              <FiMail className="me-2" />
+              <a href="mailto:info@estivagroup.com">info@estivagroup.com</a>
+            </li>
+          </ul>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
-export default Contactus
+export default ContactUs;

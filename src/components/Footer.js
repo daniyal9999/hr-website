@@ -60,10 +60,8 @@ const Footer = () => {
 
             <MDBCol md='4' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Contact Us</h6>              
-              <p>
-                info@estivagroup.com
-              </p>
-             
+              <a className='text-light' href="mailto:careers@estivagroup.com">careers@estivagroup.com</a> <br />
+              <a className='text-light' href="mailto:info@estivagroup.com">info@estivagroup.com</a>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

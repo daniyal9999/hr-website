@@ -27,13 +27,13 @@ function navbar() {
               <Nav.Link className="mx-2 text-light " href="/jobs"> <b>Vacancies</b> </Nav.Link>
             </Link>
 
-            <Link to="/contactus">
+            {/* <Link to="/contactus">
               <Nav.Link className="mx-2 text-light" href="contactus">
                 <b>
                 Contact Us
                 </b>
               </Nav.Link>
-            </Link>
+            </Link> */}
 
             <Link to="/aboutus">
               <Nav.Link className="mx-2 text-light" href="aboutus">
