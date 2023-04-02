@@ -82,7 +82,7 @@ function JobForm({id}) {
 
     if(isValid){
       console.log(JSON.stringify(formData))
-      const response = await fetch('http://localhost:4000/api/applicants/create/', {
+      const response = await fetch('https://hr-9b5a.up.railway.app/api/applicants/create/', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -186,12 +186,12 @@ function JobForm({id}) {
         </Row>
 
 {  <Button className="float-end my-5" variant="primary" type="submit"> Apply Now </Button>}
-{/* { (isLoading) &&  <Button className="float-end my-5" variant="primary" disabled>Submitting...</Button>} */}
     <br />
     <br />
     <br />
     <br />
 {  (isCreated) && <div className='alert alert-success'>Thanks for Applying!!!</div>}
+{  (!isValid) && <div className='alert alert-danger'>Click "APPLY NOW" again !!! and make sure all fields are filled</div>}
 
 </Form>
 </Container>

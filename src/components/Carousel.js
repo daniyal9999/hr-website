@@ -8,7 +8,7 @@ const Carousel = () => {
 
     useEffect(() => {
         const fetchJobs = async () => {
-            const response = await fetch(`http://localhost:4000/api/jobs?page=1&limit=3`)
+            const response = await fetch(`https://hr-9b5a.up.railway.app/api/jobs?page=1&limit=3`)
             const json = await response.json()
             setJobs(json)  
             console.log(jobs)

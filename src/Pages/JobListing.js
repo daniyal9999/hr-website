@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import JobDetail from './JobDetail'
 import { Link } from "react-router-dom";
-import Alert from 'react-bootstrap/Alert';
+import { Alert, Spinner } from 'react-bootstrap'
 import ReactPaginate from "react-paginate";
 import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from 'react-icons/fa'; 
 
@@ -12,12 +11,12 @@ const JobListing = () => {
   const [ page, setPage] = useState(1);
   const [ pageCount, setpageCount] = useState(10);
 
-  let limit = 5;
+  let limit = 7;
  
   useEffect(() => {
 
     const fetchJobs = async () => {
-      const response = await fetch(`http://localhost:4000/api/jobs?page=1&limit=${limit}`)
+      const response = await fetch(`https://hr-9b5a.up.railway.app/api/jobs?page=1&limit=${limit}`)
       const json = await response.json()
       setJobs(json)
 
@@ -34,7 +33,7 @@ const JobListing = () => {
 
   const fetchJobs = async (currentPage) => {
     const res = await fetch(
-      `http://localhost:4000/api/jobs?page=${currentPage}&limit=${limit}`
+      `https://hr-9b5a.up.railway.app/api/jobs?page=${currentPage}&limit=${limit}`
     );
     const data = await res.json();
     return data;
@@ -91,7 +90,9 @@ const JobListing = () => {
 
         <h3>Vacancies</h3>   
         { (!jobs) && 
-        <div>No Vacancies found</div>
+         <Spinner animation="border" role="status">
+         <span className="visually-hidden">Loading...</span>
+          </Spinner>
          }
         {jobs && jobs.map(job => (
             <>
