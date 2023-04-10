@@ -76,7 +76,7 @@ code {
   left: -100%;
   width: 200%;
   height: 100%;
-  background-image: linear-gradient(to bottom right, #7bcaff, #ddeeff, #94c1f5);
+  background-image: linear-gradient(to bottom right, #87b9f3, #ffffff, #87b9f3);
   transform: skewX(-30deg);
   z-index: -1;
 }
@@ -86,18 +86,13 @@ code {
   color: rgb(81, 178, 230);
 }
 
-.darkblue{
-  color: rgb(55, 135, 177);
-}
-.description{
-  color: #7bcaff;
-}
+
 
 @media (max-width: 768px) {
   .my-container:before {
     top: -100%;
     left: 0;
-    transform: skewY(-120deg);
+    transform: skewY(-30deg);
   }
 }
 

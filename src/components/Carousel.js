@@ -19,7 +19,7 @@ const Carousel = () => {
   return (
     <div className='container'>
         <br />
-        <h2 style={{ color: '#308dd9' }}>Latest Vacancies</h2>        
+        <h2 style={{ color: 'rgba(3,47,104)' }}>Latest Vacancies</h2>        
         <Container>
             <Row>
                 {!jobs &&  
@@ -29,7 +29,7 @@ const Carousel = () => {
 
                 {jobs && jobs.map(job => (
                 <Col key={job._id} sm={4} className="my-3">
-                    <Card border="primary" style={{ width: '18rem' }}>
+                    <Card border="primary" style={{ width: '17rem' }}>
                         <Link to={`/jobs/${job._id}`} style={{ textDecoration: 'none' }}>
                         <Card.Body>
                             <Card.Title style={{ color: '#308dd9' }}>{job.title}</Card.Title> 
