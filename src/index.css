@@ -25,15 +25,14 @@ code {
   padding-top: 5rem;
 }
 .foreground{
-  background-color: rgba(17, 40, 52, 0.1);
+  background-color: rgba(17,53,115,255);
 }
 .bg-blue{
-  /* background-color: rgb(9, 100, 150); */
-  background-color: rgb(17, 62, 110);
+  background-color: rgba(3,47,104);
   color: white;
 }
 .navcolor{
-  background-color: rgba(17, 40, 52, 0.8);
+  background-color: rgba(17,53,115,255);
 }
 .button-margin{
   margin-top: 8rem;
@@ -58,3 +57,47 @@ code {
 /* contact-us */
 
 /* footer */
+/* Clients section */
+.my-container {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem;
+  background-color: transparent;
+  color: white;
+}
+
+.my-container p {
+  color: black;
+}
+.my-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #7bcaff, #ddeeff, #94c1f5);
+  transform: skewX(-30deg);
+  z-index: -1;
+}
+
+.heading-blue{
+  background-color: rgba(0, 0, 0, 0.01);
+  color: rgb(81, 178, 230);
+}
+
+.darkblue{
+  color: rgb(55, 135, 177);
+}
+.description{
+  color: #7bcaff;
+}
+
+@media (max-width: 768px) {
+  .my-container:before {
+    top: -100%;
+    left: 0;
+    transform: skewY(-120deg);
+  }
+}
+

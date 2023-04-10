@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import ThreeItemCarousel from '../components/Carousel'
+import Clients from '../components/Clients'
 import { Container, Row, Col, Button, Card, ListGroup  } from 'react-bootstrap';
 import '../index.css'
 
@@ -25,6 +26,7 @@ const Home = () => {
             </Container>
           </header>
       </section>
+      <Clients/>
       <ThreeItemCarousel/>
     </div>
   )
