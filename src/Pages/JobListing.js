@@ -16,7 +16,7 @@ const JobListing = () => {
   useEffect(() => {
 
     const fetchJobs = async () => {
-      const response = await fetch(`https://hr-9b5a.up.railway.app/api/jobs?page=1&limit=${limit}`)
+      const response = await fetch(process.env.REACT_APP_API + `api/jobs?page=1&limit=${limit}`)
       const json = await response.json()
       setJobs(json)
 
@@ -33,7 +33,7 @@ const JobListing = () => {
 
   const fetchJobs = async (currentPage) => {
     const res = await fetch(
-      `https://hr-9b5a.up.railway.app/api/jobs?page=${currentPage}&limit=${limit}`
+      process.env.REACT_APP_API +`api/jobs?page=${currentPage}&limit=${limit}`
     );
     const data = await res.json();
     return data;

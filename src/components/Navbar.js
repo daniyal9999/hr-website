@@ -45,10 +45,10 @@ function navbar() {
 
           </Nav>
           
-          <div className='logo'>
+          {/* <div className='logo'>
             <img src={logo} alt="logo" />
           </div>
-          <h3 className='company-name'>Estiva Group</h3>
+          <h3 className='company-name'>Estiva Group</h3> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -82,7 +82,7 @@ function JobForm({id}) {
 
     if(isValid){
       console.log(JSON.stringify(formData))
-      const response = await fetch('https://hr-9b5a.up.railway.app/api/applicants/create/', {
+      const response = await fetch('http://stg-api.estivagroup.com/api/applicants/create/', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -164,7 +164,7 @@ function JobForm({id}) {
         <Row>
           <Col>
             <Form.Group>
-              <Form.Label> <b>Resume</b></Form.Label>
+              <Form.Label> <b>Resume (PDF)</b></Form.Label>
               <Form.Control
                 type='file'
                 accept="application/pdf"
@@ -175,7 +175,7 @@ function JobForm({id}) {
 
           <Col>
             <Form.Group>
-              <Form.Label> <b>Cover Letter</b></Form.Label>
+              <Form.Label> <b>Cover Letter (PDF)</b></Form.Label>
               <Form.Control
                 type='file'
                 accept="application/pdf"
@@ -190,7 +190,13 @@ function JobForm({id}) {
     <br />
     <br />
     <br />
-{  (isCreated) && <div className='alert alert-success'>Thanks for Applying!!!</div>}
+{ isCreated && 
+  <div className='container text-center'>
+    <div className='alert alert-dark' style={{fontWeight: 'bold', fontSize: '1.5rem'}}>
+      Thanks for Applying !!!
+    </div>
+  </div>
+}
 {  (!isValid) && <div className='alert alert-danger'>Click "APPLY NOW" again !!! and make sure all fields are filled</div>}
 
 </Form>

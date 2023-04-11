@@ -9,7 +9,7 @@ const JobDetail = () => {
   // console.log('http://localhost:4000/api/jobs/'+id)
   useEffect(() => {
 
-    fetch('https://hr-9b5a.up.railway.app/api/jobs/'+id)
+    fetch(process.env.REACT_APP_API + 'api/jobs/'+id)
     .then((response)=>response.json())
     .then((data)=>setJob(data))
     console.log("single fetch working!!!")

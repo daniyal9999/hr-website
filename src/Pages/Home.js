@@ -15,11 +15,11 @@ const Home = () => {
               <Row>
                 <Col md={12}>
 
-                  <Link to="/jobs">
                     <div className='text-center mx-auto my-5'>                    
+                  <Link to="/jobs">
                       <Button variant="lg text-white btn-primary rounded-pill" className="button-margin">Find Candidates</Button>
-                    </div>
                   </Link>
+                    </div>
 
                 </Col>
               </Row>

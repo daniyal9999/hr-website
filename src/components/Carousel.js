@@ -8,11 +8,11 @@ const Carousel = () => {
 
     useEffect(() => {
         const fetchJobs = async () => {
-            const response = await fetch(`https://hr-9b5a.up.railway.app/api/jobs?page=1&limit=3`)
+            const response = await fetch(process.env.REACT_APP_API + `api/jobs?page=1&limit=3`)
             const json = await response.json()
             setJobs(json)  
             console.log(jobs)
-        }
+        }   
         fetchJobs()    
       }, [])
 
