@@ -10,9 +10,9 @@ import Aboutus from "./Pages/Aboutus";
 
 function App() {
   return (
-    <div className="" style={{ backgroundColor: "rgba(17, 40, 52, 0.15)" }}>
+    <div className="" style={{ backgroundColor: "rgba(17, 40, 52, 0.005)" }}>
       <BrowserRouter>
-        {/* <Navbar/> */}
+        <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
         </Routes>
 
-        {/* <Footer/> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );

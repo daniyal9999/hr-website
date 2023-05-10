@@ -8,53 +8,51 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "../index.css";
 import logo from "../Pages/Images/logo.jpg";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import navlogo from "../Pages/assets/nav-logo.png";
 
 function navbar() {
   return (
-    <div className="sticky-top bg-blue">
-      <Navbar expand="lg">
-        <Container fluid className="container ">
-          <Navbar.Brand href="/" className="text-light">
-            {" "}
-            <b>Home</b>{" "}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Link to="/jobs">
-                <Nav.Link className="mx-2 text-light " href="/jobs">
-                  {" "}
-                  <b>Vacancies</b>{" "}
-                </Nav.Link>
-              </Link>
+    <Navbar variant="dark" expand="lg" className="sticky-top py-4 bg-blue">
+      <Container>
+        <Navbar.Brand href="/">
+          <img
+            src={navlogo}
+            height="72px"
+            className="d-inline-block align-top"
+            alt="logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto px-5" activeKey={window.location.pathname}>
+            <Nav.Link href="/" className="fs-5 ps-3">
+              HOME
+            </Nav.Link>
+            <Nav.Link href="/aboutus" className="fs-5 ps-3">
+              ABOUT US
+            </Nav.Link>
+            <Nav.Link href="/jobs" className="fs-5 ps-3">
+              VACANCIES
+            </Nav.Link>
+          </Nav>
 
-              {/* <Link to="/contactus">
-              <Nav.Link className="mx-2 text-light" href="contactus">
-                <b>
-                Contact Us
-                </b>
-              </Nav.Link>
-            </Link> */}
-
-              <Link to="/aboutus">
-                <Nav.Link className="mx-2 text-light" href="aboutus">
-                  <b>About Us</b>
-                </Nav.Link>
-              </Link>
-            </Nav>
-
-            <div className="logo">
-              <img src={logo} alt="logo" />
+          <Nav className="px-5">
+            <div className="social-links d-flex mx-3">
+              <a href="https://www.linkedin.com/" className="mx-1 text-light">
+                <FaLinkedin size={30} />
+              </a>
+              <a href="https://www.instagram.com/" className="mx-3 text-light">
+                <FaInstagram size={30} />
+              </a>
+              <a href="https://www.facebook.com/" className="mx-1 text-light">
+                <FaFacebook size={30} />
+              </a>
             </div>
-            <h3 className="company-name">Estiva Group</h3>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Alert, Spinner } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from "react-icons/fa";
-import EstiviaLogo from "./assets/EstiviaLogo.png";
+import bg3 from "./assets/bg-3.png";
+
 const JobListing = () => {
   const [jobs, setJobs] = useState([
     {
@@ -67,7 +68,7 @@ const JobListing = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       const response = await fetch(
-        `http://localhost:4000/api/jobs?page=1&limit=${limit}`
+        `https://stg-api.estivagroup.com/api/jobs?page=1&limit=${limit}`
       );
       const json = await response.json();
       setJobs(json);
@@ -84,7 +85,8 @@ const JobListing = () => {
 
   const fetchJobs = async (currentPage) => {
     const res = await fetch(
-      process.env.REACT_APP_API + `api/jobs?page=${currentPage}&limit=${limit}`
+      "https://stg-api.estivagroup.com/" +
+        `api/jobs?page=${currentPage}&limit=${limit}`
     );
     const data = await res.json();
     return data;
@@ -130,68 +132,21 @@ const JobListing = () => {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
-        <a className="navbar-brand" href="/#">
-          {" "}
-          <img className="navlogo" src={EstiviaLogo} alt="#A" />
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i className="fas fa-bars"></i>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto w-100 justify-content-end">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                HOME <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/aboutus">
-                ABOUT US
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/jobs">
-                VACANCIES
-              </a>
-            </li>
-          </ul>
-          <div className="nav-icons">
-            <ul>
-              <a href="/#">
-                <i
-                  className="fa-brands fa-square-facebook"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </a>
-              <a href="/#">
-                <i
-                  className="fa-brands fa-square-instagram"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </a>
-              <a href="/#">
-                <i
-                  className="fa-brands fa-linkedin"
-                  style={{ color: "#ffffff" }}
-                ></i>
-              </a>
-            </ul>
-          </div>
+      {/* JOB LISTINGS */}
+      <section>
+        <div className="main">
+          <img className="bg-img" src={bg3} alt="" />
         </div>
-      </nav>
+      </section>
 
       <div className="container">
-        <h3 style={{ color: "rgba(3,47,104)" }}>Search</h3>
+        <h3 style={{ color: "rgba(3,47,104)" }}>
+          {" "}
+          <u>
+            <b>Search</b>
+          </u>
+        </h3>
+
         <form class="search container" onSubmit={handleSearch}>
           <div class="input-group rounded">
             <input
@@ -226,7 +181,12 @@ const JobListing = () => {
         </button>
         <br />
 
-        <h3 style={{ color: "rgba(3,47,104)" }}>Vacancies</h3>
+        {/* SEARCH HEADING */}
+        <h3 style={{ color: "rgba(3,47,104)" }}>
+          <u>
+            <b>Vacancies</b>
+          </u>
+        </h3>
         {!jobs && (
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -235,20 +195,23 @@ const JobListing = () => {
         {jobs &&
           jobs.map((job) => (
             <>
-              <Alert key="primary" variant="dark">
-                <Link to={`/jobs/${job._id}`}>
+              <Alert key="primary" variant="primary">
+                <Link
+                  to={`/jobs/${job._id}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <div key={job.id}>
-                    <h3>{job.title}</h3>
+                    <h3 style={{ color: "#005a87" }}>{job.title}</h3>
                   </div>
                 </Link>
                 <p>
-                  <FaIndustry style={{ color: "#308dd9" }} /> {job.sector}{" "}
+                  <FaIndustry style={{ color: "#005a87" }} /> {job.sector}{" "}
                   <FaMapMarkerAlt
-                    style={{ color: "#308dd9", marginLeft: "2rem" }}
+                    style={{ color: "#005a87", marginLeft: "2rem" }}
                   />{" "}
                   {job.location}{" "}
                   <FaBriefcase
-                    style={{ color: "#308dd9", marginLeft: "2rem" }}
+                    style={{ color: "#005a87", marginLeft: "2rem" }}
                   />{" "}
                   {job.salary}
                 </p>
