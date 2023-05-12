@@ -55,7 +55,7 @@ const Home = () => {
             <br />
             engineering recruitment specialitst.
             <br />
-            We are technical recruitment agency,
+            We are a technical recruitment agency,
             <br />
             focused on helping firms secure
             <br />
@@ -129,15 +129,15 @@ const Home = () => {
             <div className="row">
               <div className="col-sm">
                 <hr className="divider" />
-                <h3 className="f-heading">
-                  your Construction Recruitment Specialist
-                </h3>
+                <h3 className="f-heading">Candidates</h3>
                 <p className="f-para">
-                  Estiva specializes in providing engineering, building envelope
-                  and construction recruitment.
+                  For candidates, we will provide premium opportunities to
+                  advance your career.
                   <br />
                   <br />
-                  Our motto reflects our commitment: Building-Talent.
+                  We understand the unique structures within the firms we engage
+                  with, and match your experience, skill set, character and
+                  goals to them.
                 </p>
               </div>
               <div className="col-sm d-flex justify-content-center">
