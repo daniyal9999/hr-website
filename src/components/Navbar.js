@@ -25,27 +25,54 @@ function navbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto px-5" activeKey={window.location.pathname}>
-            <Nav.Link href="/" className="fs-5 ps-3">
+          <Nav className="me-auto px-5">
+            <Link
+              to="/"
+              className="fs-5 ps-3"
+              style={{ textDecoration: "none", color: "#fefefe" }}
+            >
               HOME
-            </Nav.Link>
-            <Nav.Link href="/aboutus" className="fs-5 ps-3">
+            </Link>
+            <Link
+              to="/aboutus"
+              className="fs-5 ps-3"
+              style={{ textDecoration: "none", color: "#fefefe" }}
+            >
               ABOUT US
-            </Nav.Link>
-            <Nav.Link href="/jobs" className="fs-5 ps-3">
+            </Link>
+            <Link
+              to="/jobs"
+              className="fs-5 ps-3"
+              style={{ textDecoration: "none", color: "#fefefe" }}
+            >
               VACANCIES
-            </Nav.Link>
+            </Link>
           </Nav>
 
           <Nav className="px-5">
             <div className="social-links d-flex mx-3">
-              <a href="https://www.linkedin.com/" className="mx-1 text-light">
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="mx-1 text-light"
+              >
                 <FaLinkedin size={30} />
               </a>
-              <a href="https://www.instagram.com/" className="mx-3 text-light">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="mx-3 text-light"
+              >
                 <FaInstagram size={30} />
               </a>
-              <a href="https://www.facebook.com/" className="mx-1 text-light">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="mx-1 text-light"
+              >
                 <FaFacebook size={30} />
               </a>
             </div>

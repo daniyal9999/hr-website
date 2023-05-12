@@ -12,46 +12,7 @@ import { Link } from "react-router-dom";
 import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from "react-icons/fa";
 
 const Carousel = () => {
-  const [jobs, setJobs] = useState([
-    {
-      _id: "642480e538e32e80cd6e4457",
-      title: "General Foreman",
-      details:
-        "They respond by investing in a total in-house solution to ensure flexibility, control and above all quality and safety. They work UK wide within Utilities, Tunnelling, Heavy Civils, infrastructure and Rail with projects ranging from £500k to £50m.",
-      requirements:
-        "Manage workload to assigned gangs and works area. Check that gangs have taken all photographs as required by the contract. Communicate with the client to ensure that work is correctly prioritised and given to the correct gangs. Check that completed jobs are closed correctly and Highway Authority notified.",
-      sector: "Rails",
-      location: "London",
-      salary: "5000",
-      createdAt: "2023-03-29T18:18:13.095Z",
-      updatedAt: "2023-03-29T18:18:13.095Z",
-      __v: 0,
-    },
-    {
-      _id: "641d4c0d675618e9910bd92d",
-      title: "Site engineer",
-      details:
-        "looking for a site manager with 2 to 3 years of experience in full stack development",
-      sector: "Rails",
-      location: "London",
-      createdAt: "2023-03-24T07:06:53.863Z",
-      updatedAt: "2023-03-24T07:48:17.495Z",
-      __v: 0,
-      salary: "5000",
-    },
-    {
-      _id: "641d4c0d675618e9910bd92d",
-      title: "Site engineer",
-      details:
-        "looking for a site manager with 2 to 3 years of experience in full stack development",
-      sector: "Rails",
-      location: "London",
-      createdAt: "2023-03-24T07:06:53.863Z",
-      updatedAt: "2023-03-24T07:48:17.495Z",
-      __v: 0,
-      salary: "5000",
-    },
-  ]);
+  const [jobs, setJobs] = useState(null);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -112,8 +73,8 @@ const Carousel = () => {
                       />{" "}
                       {job.salary}
                     </p>
-                    <Card.Text style={{ color: "#002436" }}>
-                      {job.details.substring(0, 80)}...
+                    <Card.Text style={{ color: "#002436", height: "9rem" }}>
+                      {job.details.substring(0, 75)}...
                     </Card.Text>
                   </Card.Body>
                   {/* <Card.Header className="btn btn-primary  d-grid gap-2">

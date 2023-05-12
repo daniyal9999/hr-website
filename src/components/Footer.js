@@ -95,18 +95,24 @@ const Footer = () => {
                 <div className="footer-social-icons">
                   <a
                     href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noreferrer"
                     className="mx-0 text-light footer-fa fa-brands"
                   >
                     <FaLinkedin size={20} />
                   </a>
                   <a
                     href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noreferrer"
                     className="mx-2 text-light footer-fa fa-brands"
                   >
                     <FaInstagram size={20} />
                   </a>
                   <a
                     href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noreferrer"
                     className="mx-0 text-light footer-fa fa-brands"
                   >
                     <FaFacebook size={20} />
