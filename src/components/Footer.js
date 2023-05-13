@@ -140,10 +140,10 @@ const Footer = () => {
               <h5 className="footer-heading">CONTACT US</h5>
               <ul className="footer-list">
                 <li>
-                  <a href="">careers@estivagroup.com</a>
+                  <div>careers@estivagroup.com</div>
                 </li>
                 <li>
-                  <a href="">info@estivagroup.com</a>
+                  <div>info@estivagroup.com</div>
                 </li>
               </ul>
             </div>

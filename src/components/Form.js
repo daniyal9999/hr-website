@@ -85,7 +85,7 @@ function JobForm({ id }) {
     if (isValid) {
       console.log(JSON.stringify(formData));
       const response = await fetch(
-        "http://stg-api.estivagroup.com/api/applicants/create/",
+        "https://stg-api.estivagroup.com/api/applicants/create/",
         {
           method: "POST",
           body: JSON.stringify(formData),
