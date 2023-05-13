@@ -99,9 +99,6 @@ const Contactus = () => {
                   talent across multiple industries and eliminates the need to
                   shop around for multiple staffing solutions.
                 </p>
-                <a href="#" className="card-link">
-                  Learn More...
-                </a>
               </div>
             </div>
           </div>
@@ -129,9 +126,6 @@ const Contactus = () => {
                   unique challenges that come with finding skilled workers in
                   construction.
                 </p>
-                <a href="#" className="card-link">
-                  Learn More...
-                </a>
               </div>
             </div>
           </div>
