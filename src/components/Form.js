@@ -82,16 +82,14 @@ function JobForm({ id }) {
     const isValid = await userSchema.isValid(formData);
     setIsValid(isValid);
 
-    if (isValid) {
-      console.log(JSON.stringify(formData));
-      const response = await fetch(
-        "https://stg-api.estivagroup.com/api/applicants/create/",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
+    if(isValid){
+      console.log(JSON.stringify(formData))
+      const response = await fetch('http://localhost:4000/api/applicants/create/', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
         }
       );
       if (response.ok) {
@@ -177,10 +175,7 @@ function JobForm({ id }) {
         <Row>
           <Col>
             <Form.Group>
-              <Form.Label>
-                {" "}
-                <b>Resume (PDF)</b>
-              </Form.Label>
+              <Form.Label> <b>Resume (PDF)</b></Form.Label>
               <Form.Control
                 type="file"
                 accept="application/pdf"
@@ -191,10 +186,7 @@ function JobForm({ id }) {
 
           <Col>
             <Form.Group>
-              <Form.Label>
-                {" "}
-                <b>Cover Letter (PDF)</b>
-              </Form.Label>
+              <Form.Label> <b>Cover Letter (PDF)</b></Form.Label>
               <Form.Control
                 type="file"
                 accept="application/pdf"
@@ -204,33 +196,23 @@ function JobForm({ id }) {
           </Col>
         </Row>
 
-        {
-          <Button className="float-end my-5" variant="primary" type="submit">
-            {" "}
-            Apply Now{" "}
-          </Button>
-        }
-        <br />
-        <br />
-        <br />
-        <br />
-        {isCreated && (
-          <div className="container text-center">
-            <div
-              className="alert alert-dark"
-              style={{ fontWeight: "bold", fontSize: "1.5rem" }}
-            >
-              Thanks for Applying !!!
-            </div>
-          </div>
-        )}
-        {!isValid && (
-          <div className="alert alert-danger">
-            Click "APPLY NOW" again !!! and make sure all fields are filled
-          </div>
-        )}
-      </Form>
-    </Container>
+{  <Button className="float-end my-5" variant="primary" type="submit"> Apply Now </Button>}
+    <br />
+    <br />
+    <br />
+    <br />
+{ isCreated && 
+  <div className='container text-center'>
+    <div className='alert alert-dark' style={{fontWeight: 'bold', fontSize: '1.5rem'}}>
+      Thanks for Applying !!!
+    </div>
+  </div>
+}
+{  (!isValid) && <div className='alert alert-danger'>Click "APPLY NOW" again !!! and make sure all fields are filled</div>}
+
+</Form>
+</Container>
+    
   );
 }
 

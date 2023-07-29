@@ -49,6 +49,7 @@ function navbar() {
             </Link>
           </Nav>
 
+
           <Nav className="px-5">
             <div className="social-links d-flex mx-3">
               <a
@@ -77,6 +78,7 @@ function navbar() {
               </a>
             </div>
           </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

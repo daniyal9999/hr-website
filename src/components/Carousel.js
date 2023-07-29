@@ -14,17 +14,16 @@ import { FaMapMarkerAlt, FaIndustry, FaBriefcase } from "react-icons/fa";
 const Carousel = () => {
   const [jobs, setJobs] = useState(null);
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      const response = await fetch(
-        `https://stg-api.estivagroup.com/api/jobs?page=1&limit=3`
-      );
-      const json = await response.json();
-      setJobs(json);
-      console.log(jobs);
-    };
-    fetchJobs();
-  }, []);
+
+    useEffect(() => {
+        const fetchJobs = async () => {
+            const response = await fetch(`http://localhost:4000/api/jobs?page=1&limit=3`)
+            const json = await response.json()
+            setJobs(json)  
+            console.log(jobs)
+        }
+        fetchJobs()    
+      }, [])
 
   return (
     <div className="container p-4" style={{ background: "#d1e7f2" }}>
